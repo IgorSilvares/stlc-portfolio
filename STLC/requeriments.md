@@ -20,6 +20,7 @@ Webshop, with the following basic functionalities:
   - What happens if a user tries to submit feedback without providing a rating?
   - How is written feedback field validated (character limit, forbidden words...)?
   - Where will the user find the product rating functionality?
+  - Who can submit a rating?
     
     
 ### **2. Age Verification for Alcoholic Products**
@@ -32,6 +33,7 @@ Webshop, with the following basic functionalities:
   - Where will the message asking for the user's age be displayed?
   - How the system will store the data from the user's age?
   - Does the message only appear when the user tries to navigate to the alcoholic products category?
+  - How should de age be verified(e.g., simple input, date picker...)
     
 ### **3. Shipping Cost Changes**
 
