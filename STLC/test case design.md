@@ -19,7 +19,7 @@
 
 **Test Case**: Verify submitting a -1-star rating.
 - **Input**: -1 stars.
-- **Expected Outcome**: Rating is not saved and an appropriate message is displayed.
+- **Expected Outcome**: It's not possible to select negative stars on rating.
 
 **Test Case**: Verify submitting written feedback with 100 characters.
 - **Input**: Enter feedback with 100 characters.
