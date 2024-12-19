@@ -14,7 +14,8 @@
 
 **Test Case**: Verify submitting a 6-star rating.
 - **Input**: 6 stars.
-- **Expected Outcome**: Rating is not saved and an appropriate message is displayed.
+- **Expected Outcome**: It's not possible to select 6 stars on rating.
+
 
 **Test Case**: Verify submitting a -1-star rating.
 - **Input**: -1 stars.
