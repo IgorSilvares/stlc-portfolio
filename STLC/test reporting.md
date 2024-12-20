@@ -97,3 +97,25 @@
 
 ---
 
+### Scenario 6: Verify updating rating and feedback
+
+**Input:** Update the star rating and feedback text.
+
+**Expected Outcome:** Rating and feedback text is saved and displayed correctly.
+
+| Action                                                      | Expected outcome                            | OK/NOK | URL                                                                                | Link to issue |
+|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to login page Grocery Mate                               | Login page appears                          | OK     | [https://grocerymate.masterschool.com/auth](https://grocerymate.masterschool.com/auth) |               |
+| Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
+| Go to shop page                                             | Shop page appears                           | OK     | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
+| Click on Oranges                                            | Oranges page appears                        | OK     | [https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f](https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f) |                             |               |
+| Click edit on the user's old rating                                            | Edit Review pop-up appears                            | OK     |                                                                                    |               |
+| Enter a new star rating and a new feedback text                                 |                                  |      |                                                                                    |               |
+| Click on save changes    | Review with new 4-star rating and new Feedback text saved | OK  |                                                                             | 
+
+![image](https://github.com/user-attachments/assets/823b76b8-d39d-470b-8bab-7fdf010916d3)
+![image](https://github.com/user-attachments/assets/6074eec5-8c50-4dda-a31c-48b261fb51ad)
+![image](https://github.com/user-attachments/assets/4b22d962-a04d-4732-a131-b882763eae84)
+
+
+---
