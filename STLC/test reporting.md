@@ -155,27 +155,25 @@
 ---
 
 
-### Scenario 9: Verify access with invalid age
+### Scenario 9: Verify Access with Invalid Age
 
-**Input:** enter date 20-12-2008 (16 years)
+**Input:** Enter date 20-12-2008 (16 years)
 
 **Expected Outcome:** Access to alcoholic products is not granted.
 
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                       |               | 
-| Enter the date 20-12-2008 and Click on confirm  |          |        |        |              |
-|Click on Alocohol category |     Access not granted to the page     |  OK      |        |              |
+| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                                                    |               | 
+| Enter the date 20-12-2008 and click on confirm              |                                             |        |                                                                                    |               |
+| Click on Alcohol category                                   | Access not granted to the page              | OK     |                                                                                    |               |
 
 ![image](https://github.com/user-attachments/assets/343227b2-a26b-45dd-93a0-6e8b441acddf)
-
 ![image](https://github.com/user-attachments/assets/8879d9dc-2147-4e25-9691-e051cca8f010)
 
 ---
 
-
-### Scenario 10: Verify system behavior when no age is entered
+### Scenario 10: Verify System Behavior When No Age Is Entered
 
 **Input:** Leave age input field empty.
 
@@ -184,11 +182,30 @@
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                       |               | 
-| Leave the age field empty and Click on confirm  |          |        |        |              |
-|Click on Alocohol category |     Access not granted to the page     |  OK      |        |              |
+| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                                                    |               | 
+| Leave the age field empty and click on confirm              |                                             |        |                                                                                    |               |
+| Click on Alcohol category                                   | Access not granted to the page              | OK     |                                                                                    |               |
 
 ![image](https://github.com/user-attachments/assets/cfc8d11c-7f38-4de2-8096-8fe1f0b72d04)
-
-
 ![image](https://github.com/user-attachments/assets/8879d9dc-2147-4e25-9691-e051cca8f010)
+
+
+---
+
+### Scenario 11: Verify free shipping for high-value orders
+
+**Input:** Add products to exceed the free shipping threshold.
+
+**Expected Outcome:** No shipping cost is applied.
+
+| Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
+|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
+| Enter 100 Celery and click Add to Cart                        | Item added to cart      | OK     |                                                                                    |               | 
+| Click on the cart button              |                                             |        |       https://grocerymate.masterschool.com/checkout                                                                             |               |
+| Verify the shipment cost                                  | Shipment cost must be 0$              | OK     |                                                                                    |               |
+
+![image](https://github.com/user-attachments/assets/9534852a-8e06-4c35-a158-20adbc28e67d)
+
+![image](https://github.com/user-attachments/assets/baa44f84-4c7b-4f20-9e92-8cd4bc329d82)
+
