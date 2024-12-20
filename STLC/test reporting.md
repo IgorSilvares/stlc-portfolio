@@ -53,8 +53,7 @@ Expected Outcome: Feedback is saved and displayed correctly.
 | Enter feedback with 100 characters                                            |                             |      |                                                   
 | Click on 3 stars                                            | 3 stars selected                            | OK     |                                                   
 | Click on Send                                            | Review sent                            | OK     |                                                   
-| Check if rating with the feedback appears on Orange page                                            | Review with 3 stars and 100 characters feedback                            | NOK     |                                                   
-
+| Check if rating with the feedback appears on Orange page                                            | Review with 3 stars and 100 characters feedback                            | NOK     |                                        | https://github.com/IgorSilvares/stlc-portfolio/issues/1#issue-2752294148
 ![image](https://github.com/user-attachments/assets/b3c9d9f1-95f7-4fdd-9dd7-439d041f5709)
 
 ![image](https://github.com/user-attachments/assets/0abaeb73-9d17-4f9e-ba18-4d7c403f9045)
