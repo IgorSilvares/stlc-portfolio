@@ -200,6 +200,8 @@
 
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to login page Grocery Mate                               | Login page appears                          | OK     | [https://grocerymate.masterschool.com/auth](https://grocerymate.masterschool.com/auth) |               |
+| Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
 | Enter 100 Celery and click Add to Cart                        | Item added to cart      | OK     |                                                                                    |               | 
 | Click on the cart button              |                                             |        |       https://grocerymate.masterschool.com/checkout                                                                             |               |
@@ -220,6 +222,8 @@
 
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to login page Grocery Mate                               | Login page appears                          | OK     | [https://grocerymate.masterschool.com/auth](https://grocerymate.masterschool.com/auth) |               |
+| Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
 | Enter 10 Celery and click Add to Cart                        | Item added to cart      | OK     |                                                                                    |               | 
 | Click on the cart button              |                                             |        |       https://grocerymate.masterschool.com/checkout                                                                             |               |
@@ -240,11 +244,13 @@
 
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to login page Grocery Mate                               | Login page appears                          | OK     | [https://grocerymate.masterschool.com/auth](https://grocerymate.masterschool.com/auth) |               |
+| Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
 | Enter 29 Celery and click Add to Cart                        | Item added to cart      | OK     |                                                                                    |               | 
 | Click on the cart button              |                                             |        |       https://grocerymate.masterschool.com/checkout                                                                             |               |
 | Verify the shipment cost                                  | Shipment cost must 0$             | OK     |                                                                                    |               |
-| Click on the "-" button to remove one Celary                                  | Shipment cost must be presented              | NOK     |                                                                                    |               |
+| Click on the "-" button to remove one Celary                                  | Shipment cost must be presented              | NOK     |                                                                                    |      https://github.com/IgorSilvares/stlc-portfolio/issues/2#issue-2752549816         |
 
 
 ![image](https://github.com/user-attachments/assets/891d98fd-d973-4d98-9738-b74cea2e3542)
