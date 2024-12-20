@@ -12,7 +12,7 @@ Expected Outcome: Rating is saved and displayed correctly.
 | Click on Oranges                                            | Oranges page appears                        | OK     | [https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f](https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f) |               |
 | Click on 5 stars                                            | 5 stars selected                            | OK     |                                                                                    |               |
 | Click on Send                                               | Review sent                                 | OK     |                                                                                    |               |
-| Check if rating appears on Orange page                      | 5 stars rating with no comments add         | OK     |                                                                                    |               |
+| Check if rating appears on Orange page                      | 5 stars rating with no comments added         | OK     |                                                                                    |               |
 
 
 ![image](https://github.com/user-attachments/assets/e531b3fd-b835-400d-8f13-5ccde4982cdc)
