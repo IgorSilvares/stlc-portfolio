@@ -229,3 +229,27 @@
 
 ![image](https://github.com/user-attachments/assets/b8c5c872-d0ae-4a3a-9a2f-780a1c073290)
 
+
+---
+
+### Scenario 13: Verify system behavior when removing items to drop below the free shipping threshold
+
+**Input:** Add products above the free shipping threshold, then remove items to drop below the threshold.
+
+**Expected Outcome:** Shipping cost is applied correctly based on the new order total.
+
+| Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
+|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
+| Enter 29 Celery and click Add to Cart                        | Item added to cart      | OK     |                                                                                    |               | 
+| Click on the cart button              |                                             |        |       https://grocerymate.masterschool.com/checkout                                                                             |               |
+| Verify the shipment cost                                  | Shipment cost must 0$             | OK     |                                                                                    |               |
+| Click on the "-" button to remove one Celary                                  | Shipment cost must be presented              | NOK     |                                                                                    |               |
+
+
+![image](https://github.com/user-attachments/assets/891d98fd-d973-4d98-9738-b74cea2e3542)
+
+![image](https://github.com/user-attachments/assets/d441c461-d1cc-4f30-8d53-987e27e50baf)
+
+![image](https://github.com/user-attachments/assets/b0e54d1c-5f4f-4627-b558-af7074fbe241)
+
