@@ -22,12 +22,12 @@
 - **Expected Outcome**: It's not possible to select negative stars on rating.
 
 **Test Case**: Verify submitting written feedback with 100 characters.
-- **Input**: Enter feedback with 100 characters.
+- **Input**: Enter feedback text with 100 characters, 3-star rating.
 - **Expected Outcome**: Feedback is saved and displayed correctly.
 
-**Test Case**: Verify submitting written feedback with 101 characters.
-- **Input**: Enter feedback with 101 characters.
-- **Expected Outcome**: Feedback is not saved and an appropriate message is displayed.
+**Test Case**: Verify submitting written feedback with 501 characters.
+- **Input**: Enter feedback text with 501 characters.
+- **Expected Outcome**: Feedback text with more than 500 characters it's not accepted.
 
 **Test Case**: Verify submitting written feedback with 0 characters.
 - **Input**: Enter feedback with 0 characters.
