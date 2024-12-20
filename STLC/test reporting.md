@@ -209,3 +209,23 @@
 
 ![image](https://github.com/user-attachments/assets/baa44f84-4c7b-4f20-9e92-8cd4bc329d82)
 
+
+---
+
+### Scenario 12: Verify shipping fee for low-value orders
+
+**Input:** Add products below the free shipping threshold.
+
+**Expected Outcome:** Correct shipping fee is applied.
+
+| Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
+|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
+| Enter 10 Celery and click Add to Cart                        | Item added to cart      | OK     |                                                                                    |               | 
+| Click on the cart button              |                                             |        |       https://grocerymate.masterschool.com/checkout                                                                             |               |
+| Verify the shipment cost                                  | Shipment cost must be presented              | OK     |                                                                                    |               |
+
+![image](https://github.com/user-attachments/assets/cb0bd09a-ff6d-4028-a8ac-c11d22fa51bc)
+
+![image](https://github.com/user-attachments/assets/b8c5c872-d0ae-4a3a-9a2f-780a1c073290)
+
