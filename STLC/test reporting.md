@@ -152,3 +152,22 @@
 ![image](https://github.com/user-attachments/assets/69ca4c2f-3582-432a-9300-1d112f72ebf9)
 
 
+---
+
+
+### Scenario 9: Verify access with invalid age
+
+**Input:** enter date 20-12-2008 (16 years)
+
+**Expected Outcome:** Access to alcoholic products is granted.
+
+| Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
+|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
+| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                       |               | 
+| Enter the date 20-12-2008 and Click on confirm  |          |        |        |              |
+|Click on Alocohol category |     Access not granted to the page     |  OK      |        |              |
+
+![image](https://github.com/user-attachments/assets/343227b2-a26b-45dd-93a0-6e8b441acddf)
+
+![image](https://github.com/user-attachments/assets/8879d9dc-2147-4e25-9691-e051cca8f010)
