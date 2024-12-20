@@ -159,7 +159,7 @@
 
 **Input:** enter date 20-12-2008 (16 years)
 
-**Expected Outcome:** Access to alcoholic products is granted.
+**Expected Outcome:** Access to alcoholic products is not granted.
 
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
@@ -169,5 +169,26 @@
 |Click on Alocohol category |     Access not granted to the page     |  OK      |        |              |
 
 ![image](https://github.com/user-attachments/assets/343227b2-a26b-45dd-93a0-6e8b441acddf)
+
+![image](https://github.com/user-attachments/assets/8879d9dc-2147-4e25-9691-e051cca8f010)
+
+---
+
+
+### Scenario 10: Verify system behavior when no age is entered
+
+**Input:** Leave age input field empty.
+
+**Expected Outcome:** Access to alcoholic products is not granted.
+
+| Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
+|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
+| Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
+| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                       |               | 
+| Leave the age field empty and Click on confirm  |          |        |        |              |
+|Click on Alocohol category |     Access not granted to the page     |  OK      |        |              |
+
+![image](https://github.com/user-attachments/assets/cfc8d11c-7f38-4de2-8096-8fe1f0b72d04)
+
 
 ![image](https://github.com/user-attachments/assets/8879d9dc-2147-4e25-9691-e051cca8f010)
