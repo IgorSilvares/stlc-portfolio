@@ -1,6 +1,8 @@
 import pytest
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 @pytest.fixture(scope="function")
@@ -46,7 +48,7 @@ def test_verify_product(web_driver):
     password_input.send_keys("secret_sauce")
     login_button.click()
 
-    product_element = driver.find_element(By.XPATH, f"//div[text()='{product_name}']")
+    product_element = WebDriverWait(driver, 3).until(EC.presence_of_element_located((By.XPATH, f"//div[text()='{product_name}']")))
     assert product_element is not None, f"Product '{product_name}' not found on the products page"
     print(f"Product '{product_name}' is displayed on the products page.")
 
