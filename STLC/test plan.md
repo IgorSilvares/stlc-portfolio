@@ -33,12 +33,15 @@ The product allows users to:
 ### Scope of Testing
 
 - **In Scope:**
+    - Product Rating System
+    - Age Verification for Alcoholic Products
+    - Shipping Cost Changes
+      
+- **Out of Scope:**
     - Register and login functionality
     - Product search, sorting, and categorization
     - Adding products to favorites and basket
     - Checkout process and cost calculation
-    - New features: Product Rating System, Age Verification for Alcoholic Products, Shipping Cost Changes
-- **Out of Scope:**
     - Backend database operations not affecting the user interface
     - Non-functional aspects of third-party integrations unless directly related to user experience
 
