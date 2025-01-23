@@ -51,6 +51,6 @@ Write the XPath of **Confirm** button which you can see in the Modal.
 - Confirm Button: //button[text()='Confirm']
 
 ## 5. Oranges
-- Quantity input of Oranges: //input[@name='quantity_66b3a57b3fd5048eacb4798f']
-- Add to cart button for Oranges: //button[@class="btn btn-primary btn-cart"][1]
-- Add to wish list for Oranges: //button[@class="btn btn-outline-dark "][1]
+- Quantity input of Oranges: //img[@alt='Oranges']/ancestor::div[@class='card']//input[@type='number']
+- Add to cart button for Oranges: //img[@alt='Oranges']/ancestor::div[@class='card']//button[@class='btn btn-primary btn-cart']
+- Add to wish list for Oranges: //img[@alt='Oranges']/ancestor::div[@class='card']//button[@class='btn btn-outline-dark ']
