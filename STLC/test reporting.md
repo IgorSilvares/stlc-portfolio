@@ -31,7 +31,7 @@
 | Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
 | Go to shop page                                             | Shop page appears                           | OK     | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
 | Click on Oranges                                            | Oranges page appears                        | OK     | [https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f](https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f) |               |
-| Click on 6 stars                                            | 6 stars cannot be selected                  | OK     |                                                                                    |               |
+| Try to select 6 stars                                            | 6 stars cannot be selected                  | OK     |                                                                                    |               |
 
 ![image](https://github.com/user-attachments/assets/e531b3fd-b835-400d-8f13-5ccde4982cdc)
 
@@ -71,7 +71,7 @@
 | Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
 | Go to shop page                                             | Shop page appears                           | OK     | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
 | Click on Oranges                                            | Oranges page appears                        | OK     | [https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f](https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f) |               |
-| Enter feedback with 501 characters                         | It's not possible to enter more than 500 characters | OK  |                                                                                    |               |
+| Enter feedback with 500 characters                         | Message saying that the character limit has been reached | OK  |                                                                                    |               |
 
 ![image](https://github.com/user-attachments/assets/cb3b3594-ef2f-4df3-954d-8497d9fe0fe8)
 
