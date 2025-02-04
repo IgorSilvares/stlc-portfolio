@@ -31,7 +31,7 @@
 | Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
 | Go to shop page                                             | Shop page appears                           | OK     | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
 | Click on Oranges                                            | Oranges page appears                        | OK     | [https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f](https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f) |               |
-| Try to select 6 stars                                            | 6 stars cannot be selected                  | OK     |                                                                                    |               |
+|Check that 6 stars cannot be selected                                            | 6 stars cannot be selected                  | OK     |                                                                                    |               |
 
 ![image](https://github.com/user-attachments/assets/e531b3fd-b835-400d-8f13-5ccde4982cdc)
 
@@ -118,16 +118,16 @@
 
 ---
 
-### Scenario 7: Verify Updating Rating and Feedback
+### Scenario 7: Verify age validation modal
 
 **Input:** Navigate to the shop page
 
-**Expected Outcome:** The pop-up appears asking for age verification.
+**Expected Outcome:** The modal appears asking for age verification.
 
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                                                    |               |
+| Wait for the Confirmation Age modal                        | Age confirmation message should appear      | OK     |                                                                                    |               |
 
 ![image](https://github.com/user-attachments/assets/b7f248cc-6e41-419c-bb65-4719eaaeb923)
 
@@ -143,7 +143,7 @@
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                       |               | 
+| Wait for the Confirmation Age modal                        | Age confirmation message should appear      | OK     |                                                       |               | 
 | Enter the date 20-12-1999 and Click on confirm  |          |        |        |              |
 |Click on Alocohol category |     Access granted to the page     |  OK      |        |              |
 
@@ -164,7 +164,7 @@
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                                                    |               | 
+| Wait for the Confirmation Age modal                        | Age confirmation message should appear      | OK     |                                                                                    |               | 
 | Enter the date 20-12-2008 and click on confirm              |                                             |        |                                                                                    |               |
 | Click on Alcohol category                                   | Access not granted to the page              | OK     |                                                                                    |               |
 
@@ -182,7 +182,7 @@
 | Action                                                      | Expected Outcome                            | OK/NOK | URL                                                                                | Link to Issue |
 |-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
 | Go to shop page                                             |                                             |        | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Wait for the Confirmation Age pop-up                        | Age confirmation message should appear      | OK     |                                                                                    |               | 
+| Wait for the Confirmation Age modal                        | Age confirmation message should appear      | OK     |                                                                                    |               | 
 | Leave the age field empty and click on confirm              |                                             |        |                                                                                    |               |
 | Click on Alcohol category                                   | Access not granted to the page              | OK     |                                                                                    |               |
 
