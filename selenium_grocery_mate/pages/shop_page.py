@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class HomePage:
+class ShopPage:
 
     def __init__(self, driver):
         self.driver = driver
