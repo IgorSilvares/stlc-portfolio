@@ -20,6 +20,7 @@ class OrangePage:
         self.delete_button_locator = (By.XPATH, "//div[@class='dropdown-menu']/button[text()='Delete']")
         self.review_div_locator = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']")
         self.review_user_rate = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']//span[@class='small']")
+        self.review_user_feedback = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']/p")
 
     # Actions
     def click_one_star_button(self):
@@ -53,4 +54,10 @@ class OrangePage:
         self.driver.find_element(*self.delete_button_locator).click()
 
     def confirm_delete_alert(self):
+        self.driver.switch_to.alert.accept()
+
+    def delete_review(self):
+        self.driver.find_element(*self.review_div_locator).click()
+        self.driver.find_element(*self.review_options_locator).click()
+        self.driver.find_element(*self.delete_button_locator).click()
         self.driver.switch_to.alert.accept()
