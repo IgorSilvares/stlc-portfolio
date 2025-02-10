@@ -53,6 +53,6 @@ def test_five_star(driver):
     assert user_rating == '(5)'
 
     # Delete the review
-    orange_page.click_review_options()
-    orange_page.click_delete_button()
-    orange_page.confirm_delete_alert()
+    orange_page.delete_review()
+
+    driver.quit()
