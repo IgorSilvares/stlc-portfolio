@@ -19,10 +19,38 @@ class OrangePage:
         self.edit_button_locator = (By.XPATH, "//div[@class='dropdown-menu']/button[text()='Edit']")
         self.delete_button_locator = (By.XPATH, "//div[@class='dropdown-menu']/button[text()='Delete']")
         self.review_div_locator = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']")
+        self.review_user_rate = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']//span[@class='small']")
 
     # Actions
+    def click_one_star_button(self):
+        self.driver.find_element(*self.one_star_locator).click()
+    
+    def click_two_star_button(self):
+        self.driver.find_element(*self.two_star_locator).click()
+
+    def click_three_star_button(self):
+        self.driver.find_element(*self.three_star_locator).click()
+    
+    def click_four_star_button(self):
+        self.driver.find_element(*self.four_star_locator).click()
+
+    def click_five_star_button(self):
+        self.driver.find_element(*self.five_star_locator).click()
+
+    def enter_review_text(self, text):
+        self.driver.find_element(*self.review_text_locator).send_keys(text)
+
+    def click_send_button(self):
+        self.driver.find_element(*self.send_button_locator).click()
+    
+    def click_review_options(self):
+        self.driver.find_element(*self.review_options_locator).click()
+    
     def click_edit_button(self):
         self.driver.find_element(*self.edit_button_locator).click()
+    
+    def click_delete_button(self):
+        self.driver.find_element(*self.delete_button_locator).click()
 
-    def click_checkout(self):
-        self.driver.find_element(*self.checkout_locator).click()
+    def confirm_delete_alert(self):
+        self.driver.switch_to.alert.accept()

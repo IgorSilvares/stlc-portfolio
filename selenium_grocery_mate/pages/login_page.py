@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
-
+from pages.home_page import HomePage
+from utils.constants import log_in_url
 
 class LoginPage:
 
@@ -13,8 +14,8 @@ class LoginPage:
 
 
     # Actions
-    def open_page(self, url):
-        self.driver.get(url)
+    def open_page(self):
+        self.driver.get(log_in_url)
 
     def enter_email(self, email):
         self.driver.find_element(*self.email_locator).send_keys(email)
@@ -24,3 +25,11 @@ class LoginPage:
 
     def click_sign_in_button(self):
         self.driver.find_element(*self.sign_in__button_locator).click()
+        return HomePage(self.driver)
+
+
+    def open_page_and_login(self, email, password):
+        self.open_page()
+        self.enter_email(email)
+        self.enter_password(password)
+        return self.click_sign_in_button()

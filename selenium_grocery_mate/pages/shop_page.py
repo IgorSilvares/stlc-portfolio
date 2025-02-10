@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+from pages.orange_page import OrangePage
 
 
 class ShopPage:
@@ -32,3 +33,4 @@ class ShopPage:
 
     def click_orange(self):
         self.driver.find_element(*self.orange_locator).click()
+        return OrangePage(self.driver)
