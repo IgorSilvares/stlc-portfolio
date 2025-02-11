@@ -4,7 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.login_page import LoginPage
 from pages.orange_page import OrangePage
 from pages.shop_page import ShopPage
-from utils.constants import user, password
+from utils.constants import user, password, feedback_100char
 
 def test_three_star(driver):
     try:
@@ -43,7 +43,7 @@ def test_three_star(driver):
         )
 
         # Enter review text
-        orange_page.enter_review_text("Fresh,juicy and sweet! Vibrant color, amazing texture. Highly recommend! Would definitely buy again!")
+        orange_page.enter_review_text(feedback_100char)
 
         # Click the three-star button
         orange_page.click_three_star_button()
@@ -60,7 +60,7 @@ def test_three_star(driver):
 
         # Assert that the user rating is 3 and the user feedback is correct
         assert user_rating == '(3)'
-        assert user_feedback == "Fresh,juicy and sweet! Vibrant color, amazing texture. Highly recommend! Would definitely buy again!"
+        assert user_feedback == feedback_100char
 
     finally:
         # Delete the review (executed regardless of the test result)
