@@ -6,7 +6,7 @@ from pages.orange_page import OrangePage
 from pages.shop_page import ShopPage
 from utils.constants import user, password, feedback_100char
 
-def test_three_star(driver):
+def test_100_feedback(driver):
     try:
         # Open the login page and log in
         homepage = LoginPage(driver).open_page_and_login(user, password)
@@ -37,9 +37,9 @@ def test_three_star(driver):
         shop_page.click_orange()
         orange_page = OrangePage(driver)
 
-        # Wait for the five-star button to be present
+        # Wait for the three-star button to be present
         five_star_button = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located(orange_page.five_star_locator)
+            EC.presence_of_element_located(orange_page.three_star_locator)
         )
 
         # Enter review text
