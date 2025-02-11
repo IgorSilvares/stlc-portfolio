@@ -21,7 +21,7 @@ class OrangePage:
         self.review_div_locator = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']")
         self.review_user_rate = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']//span[@class='small']")
         self.review_user_feedback = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']/p")
-        self.review_error_message = (By.XPATH, "//p[@class='error-message'")
+        self.review_error_message = (By.XPATH, "//p[@class='error-message']")
     # Actions
     def click_one_star_button(self):
         self.driver.find_element(*self.one_star_locator).click()
