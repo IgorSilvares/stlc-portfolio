@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-from utils.constants import username
+from utils.constants import username, updated_text
 
 
 class OrangePage:
@@ -15,13 +15,18 @@ class OrangePage:
         self.five_star_locator = (By.XPATH, "//div[@class='interactive-rating']/span[@class='star empty'][5]")
         self.review_text_locator = (By.XPATH, "//textarea[@class='new-review-form-control ']")
         self.send_button_locator = (By.XPATH, "//button[@class='new-review-btn new-review-btn-send']")
+        self.updated_text_locator = (By.XPATH, f"//div[@class='comment-body']/p[text()='{updated_text}']")
         self.review_options_locator = (By.XPATH, "//div[@class='menu-icon']")
         self.edit_button_locator = (By.XPATH, "//div[@class='dropdown-menu']/button[text()='Edit']")
+        self.edit_rating_locator = (By.XPATH, "//input[@type='number']")
+        self.edit_text_locator = (By.XPATH, "//div[@class='modal']//textarea")
+        self.save_changes_button = (By.XPATH, "//div[@class='modal-buttons']/button[text()='Save Changes']")
         self.delete_button_locator = (By.XPATH, "//div[@class='dropdown-menu']/button[text()='Delete']")
         self.review_div_locator = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']")
         self.review_user_rate = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']//span[@class='small']")
         self.review_user_feedback = (By.XPATH, f"//h5/strong[text()='{username}']/ancestor::div[@class='comment-body']/p")
         self.review_error_message = (By.XPATH, "//p[@class='error-message']")
+
     # Actions
     def click_one_star_button(self):
         self.driver.find_element(*self.one_star_locator).click()
@@ -55,6 +60,17 @@ class OrangePage:
 
     def confirm_delete_alert(self):
         self.driver.switch_to.alert.accept()
+
+    def enter_new_rating(self, value):
+        self.driver.find_element(*self.edit_rating_locator).clear()
+        self.driver.find_element(*self.edit_rating_locator).send_keys(value)
+
+    def enter_new_feedback(self, text):
+        self.driver.find_element(*self.edit_text_locator).clear()
+        self.driver.find_element(*self.edit_text_locator).send_keys(text)
+
+    def click_save_changes_button(self):
+        self.driver.find_element(*self.save_changes_button).click()
 
     def delete_review(self):
         self.driver.find_element(*self.review_div_locator).click()
