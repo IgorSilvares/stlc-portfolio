@@ -43,7 +43,7 @@ def test_three_star(driver):
         )
 
 
-        # Click the five-star button
+        # Click the three-star button
         orange_page.click_three_star_button()
         orange_page.click_send_button()
 
