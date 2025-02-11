@@ -6,7 +6,7 @@ from pages.orange_page import OrangePage
 from pages.shop_page import ShopPage
 from utils.constants import user, password
 
-def test_three_star(driver):
+def test_five_star(driver):
     try:
         # Open the login page and log in
         homepage = LoginPage(driver).open_page_and_login(user, password)
@@ -37,14 +37,14 @@ def test_three_star(driver):
         shop_page.click_orange()
         orange_page = OrangePage(driver)
 
-        # Wait for the three-star button to be present
+        # Wait for the five-star button to be present
         five_star_button = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located(orange_page.three_star_locator)
+            EC.presence_of_element_located(orange_page.five_star_locator)
         )
 
 
-        # Click the three-star button
-        orange_page.click_three_star_button()
+        # Click the five-star button
+        orange_page.click_five_star_button()
         orange_page.click_send_button()
 
         # Wait for the orange review to be present
@@ -55,8 +55,8 @@ def test_three_star(driver):
         # Get the review rating
         user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
 
-        # Assert that the user rating is 3 and the user feedback is correct
-        assert user_rating == '(3)'
+        # Assert that the user rating is 5 and the user feedback is correct
+        assert user_rating == '(5)'
 
     finally:
         # Delete the review
