@@ -1,3 +1,5 @@
+import time
+
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -28,20 +30,31 @@ def test_five_star(driver):
         shop_page = ShopPage(driver)
         shop_page.click_age_confirm_button()
 
-        # Wait for the orange element to be present
-        orange_element = WebDriverWait(driver, 3).until(
-            EC.presence_of_element_located(shop_page.orange_locator)
+        # Wait for the search input to be present
+        search_input = WebDriverWait(driver, 3).until(
+            EC.presence_of_element_located(shop_page.search_input_locator)
         )
 
-        # Click the orange element
-        shop_page.click_orange()
+        # Search the orange item
+        shop_page.enter_search("oranges")
+
+        # Wait for the orange item to be present
+        orange_item = WebDriverWait(driver, timeout=3).until(
+            EC.presence_of_element_located(shop_page.searched_item_locator)
+        )
+        # Click the orange item
+        shop_page.click_searched_item()
+
+        # Wait fot the orange page to be loaded
+        WebDriverWait(driver, timeout=3).until(
+            EC.url_to_be("https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f")
+        )
         orange_page = OrangePage(driver)
 
         # Wait for the five-star button to be present
         five_star_button = WebDriverWait(driver, 3).until(
             EC.presence_of_element_located(orange_page.five_star_locator)
         )
-
 
         # Click the five-star button
         orange_page.click_five_star_button()
