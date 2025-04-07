@@ -88,6 +88,11 @@ class OrangePage:
     def click_save_changes_button(self):
         self.driver.find_element(*self.save_changes_button).click()
 
+        # Wait for the new feedback to be present
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.updated_text_locator)
+        )
+
     def check_feedback_error(self):
         try:
             WebDriverWait(self.driver, 3).until(
