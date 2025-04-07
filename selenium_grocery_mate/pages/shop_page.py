@@ -1,4 +1,8 @@
+from selenium.webdriver.support import expected_conditions as EC
+
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+
 from pages.orange_page import OrangePage
 from pages.alcohol_page import AlcoholPage
 from pages.checkout_page import CheckoutPage
@@ -8,6 +12,10 @@ class ShopPage:
 
     def __init__(self, driver):
         self.driver = driver
+
+        WebDriverWait(self.driver, 3).until(
+            EC.url_to_be('https://grocerymate.masterschool.com/store')
+        )
 
         # Locators
         self.age_input_locator = (By.XPATH, "//div[@class='modal-content']/input[@placeholder='DD-MM-YYYY']")
@@ -34,8 +42,19 @@ class ShopPage:
     def enter_search(self, search):
         self.driver.find_element(*self.search_input_locator).send_keys(search)
 
+        # Wait for the orange item to be present
+        orange_item = WebDriverWait(self.driver, timeout=3).until(
+            EC.presence_of_element_located(self.searched_item_locator)
+        )
+
     def click_searched_item(self):
-        self.driver.find_element(*self.searched_item_locator).click()
+        # Wait for and click the item
+        WebDriverWait(self.driver, 3).until(
+            EC.element_to_be_clickable(self.searched_item_locator)
+        ).click()
+
+        # Return the OrangePage
+        return OrangePage(self.driver)
     
     def click_age_confirm_button(self):
         self.driver.find_element(*self.age_confirm_button).click()
