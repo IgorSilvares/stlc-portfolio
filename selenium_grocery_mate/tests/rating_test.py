@@ -6,13 +6,17 @@ from utils.constants import user, password
 def login_and_navigate_to_item(driver, search_term):
     # Login with user and password
     homepage = LoginPage(driver).open_page_and_login(user, password)
+
     # Enter the Shop Page
     shop_page = homepage.click_shop()
     shop_page.click_age_confirm_button()
+
     # Search for the product
     shop_page.enter_search(search_term)
+
     # Enter the product page
     orange_page = shop_page.click_searched_item()
+
     return orange_page
 
 
