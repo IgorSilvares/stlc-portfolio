@@ -20,6 +20,12 @@ def login_and_navigate_to_item(driver, search_term):
     return orange_page
 
 
+def delete_review_helper(driver):
+    # Delete the review
+    orange_page = OrangePage(driver)
+    orange_page.delete_review()
+
+
 def test_100_feedback(driver):
     try:
         # Login and navigate to the orange item
@@ -42,8 +48,7 @@ def test_100_feedback(driver):
 
     finally:
         # Delete the review (executed regardless of the test result)
-        orange_page = OrangePage(driver)
-        orange_page.delete_review()
+        delete_review_helper(driver)
 
 
 def test_500_feedback(driver):
@@ -92,5 +97,4 @@ def test_edit(driver):
 
     finally:
         # Delete the review
-        orange_page = OrangePage(driver)
-        orange_page.delete_review()
+        delete_review_helper(driver)
