@@ -1,4 +1,7 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+
 from utils.constants import username, updated_text
 
 
@@ -35,19 +38,32 @@ class OrangePage:
         self.driver.find_element(*self.two_star_locator).click()
 
     def click_three_star_button(self):
-        self.driver.find_element(*self.three_star_locator).click()
-    
+        # Wait for the three-star button to be present
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.three_star_locator)
+        ).click()
+
     def click_four_star_button(self):
         self.driver.find_element(*self.four_star_locator).click()
 
     def click_five_star_button(self):
-        self.driver.find_element(*self.five_star_locator).click()
+        # Wait for the five-star button to be present
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.five_star_locator)
+        ).click()
 
     def enter_review_text(self, text):
-        self.driver.find_element(*self.review_text_locator).send_keys(text)
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.review_text_locator)
+        ).send_keys(text)
 
     def click_send_button(self):
         self.driver.find_element(*self.send_button_locator).click()
+
+        # Wait for the orange review to be present
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.review_div_locator)
+        )
     
     def click_review_options(self):
         self.driver.find_element(*self.review_options_locator).click()
@@ -72,8 +88,22 @@ class OrangePage:
     def click_save_changes_button(self):
         self.driver.find_element(*self.save_changes_button).click()
 
+    def check_feedback_error(self):
+        try:
+            WebDriverWait(self.driver, 3).until(
+                EC.presence_of_element_located(self.review_error_message)
+            )
+            return True  # Error message is present
+        except:
+            return False  # Error message not found
+
     def delete_review(self):
         self.driver.find_element(*self.review_div_locator).click()
         self.driver.find_element(*self.review_options_locator).click()
         self.driver.find_element(*self.delete_button_locator).click()
         self.driver.switch_to.alert.accept()
+
+        # Wait for the review to be deleted
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.send_button_locator)
+        )
