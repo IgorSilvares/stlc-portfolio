@@ -4,12 +4,9 @@ from selenium.webdriver.support import expected_conditions as EC
 from pages.login_page import LoginPage
 from utils.constants import user, password
 
+
 def test_login(driver):
     homepage = LoginPage(driver).open_page_and_login(user, password)
-
-    WebDriverWait(driver, 3).until(
-        EC.url_to_be('https://grocerymate.masterschool.com/')
-    )
 
     assert homepage.driver.current_url == 'https://grocerymate.masterschool.com/'
 
