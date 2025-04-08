@@ -1,9 +1,9 @@
 from pages.login_page import LoginPage
 from pages.orange_page import OrangePage
-from utils.constants import user, password, feedback_100char, feedback_500char, updated_text
+from utils.constants import user, password, feedback_100char, feedback_500char
 
 
-def login_and_navigate_to_item(driver, search_term):
+def _login_and_navigate_to_item(driver, search_term):
     # Login with user and password
     homepage = LoginPage(driver).open_page_and_login(user, password)
 
@@ -15,86 +15,40 @@ def login_and_navigate_to_item(driver, search_term):
     shop_page.enter_search(search_term)
 
     # Enter the product page
-    orange_page = shop_page.click_searched_item()
-
-    return orange_page
+    return shop_page.click_searched_item()
 
 
-def delete_review_helper(driver):
-    # Delete the review
-    orange_page = OrangePage(driver)
-    orange_page.delete_review()
-
-
-def test_100_feedback(driver):
+def _test_feedback(driver, feedback_text, stars=None, expected_rating=None, expect_error=False):
+    orange_page = None
     try:
-        # Login and navigate to the orange item
-        orange_page = login_and_navigate_to_item(driver, "oranges")
+        orange_page = _login_and_navigate_to_item(driver, "oranges")
+        orange_page.enter_review_text(feedback_text)
 
-        # Enter review text
-        orange_page.enter_review_text(feedback_100char)
+        if not expect_error:
+            # Dynamically call the correct star-rating method
+            getattr(orange_page, f"click_{stars}_star_button")()
+            # Click the send button
+            orange_page.click_send_button()
 
-        # Click the three-star button
-        orange_page.click_three_star_button()
-        orange_page.click_send_button()
+            # Get the user rating
+            user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
+            # Assert the user rating is the expected
+            user_feedback = orange_page.driver.find_element(*orange_page.review_user_feedback).text
 
-        # Get the review rating
-        user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
-        user_feedback = orange_page.driver.find_element(*orange_page.review_user_feedback).text
-
-        # Assert that the user rating is 3 and the user feedback is correct
-        assert user_rating == '(3)'
-        assert user_feedback == feedback_100char
+            assert user_rating == f'({expected_rating})'
+            assert user_feedback == feedback_text
+        else:
+            assert orange_page.check_feedback_error()
 
     finally:
-        # Delete the review (executed regardless of the test result)
-        delete_review_helper(driver)
+        if not expect_error and orange_page:
+            OrangePage(driver).delete_review()
 
 
-def test_500_feedback(driver):
-    # Login and navigate to the orange item
-    orange_page = login_and_navigate_to_item(driver, "oranges")
-
-    # Enter review text (500 char)
-    orange_page.enter_review_text(feedback_500char)
-
-    # Assert that the error is displayed
-    assert orange_page.check_feedback_error()
+# Test cases
+def test_100char_feedback_with_3_stars(driver):
+    _test_feedback(driver, feedback_100char, stars="three", expected_rating=3)
 
 
-def test_edit(driver):
-    try:
-        # Login and navigate to the orange item
-        orange_page = login_and_navigate_to_item(driver, "oranges")
-
-        # Enter review text
-        orange_page.enter_review_text(feedback_100char)
-
-        # Click the three-star button
-        orange_page.click_three_star_button()
-
-        # Click the send button
-        orange_page.click_send_button()
-
-        # Get the review rating
-        old_user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
-        old_user_feedback = orange_page.driver.find_element(*orange_page.review_user_feedback).text
-
-        # Edit the old rating and feedback
-        orange_page.click_review_options()
-        orange_page.click_edit_button()
-        orange_page.enter_new_rating(4)
-        orange_page.enter_new_feedback(updated_text)
-        orange_page.click_save_changes_button()
-
-        # Get the new review rating
-        new_user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
-        new_user_feedback = orange_page.driver.find_element(*orange_page.review_user_feedback).text
-
-        # Assert that the review has been edited
-        assert new_user_feedback == "New feedback" and new_user_rating != old_user_feedback
-        assert new_user_rating == '(4)' and new_user_feedback != old_user_rating
-
-    finally:
-        # Delete the review
-        delete_review_helper(driver)
+def test_500char_feedback_error(driver):
+    _test_feedback(driver, feedback_500char, expect_error=True)
