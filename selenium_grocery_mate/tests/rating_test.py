@@ -3,7 +3,7 @@ from pages.orange_page import OrangePage
 from utils.constants import user, password
 
 
-def login_and_navigate_to_item(driver, search_term):
+def _login_and_navigate_to_item(driver, search_term):
     # Login with user and password
     homepage = LoginPage(driver).open_page_and_login(user, password)
 
@@ -15,50 +15,35 @@ def login_and_navigate_to_item(driver, search_term):
     shop_page.enter_search(search_term)
 
     # Enter the product page
-    orange_page = shop_page.click_searched_item()
+    shop_page.click_searched_item()
 
-    return orange_page
+    return shop_page.click_searched_item()
 
 
-def test_five_star(driver):
+def _test_star_rating(driver, stars, expected_rating):
+    orange_page = None
     try:
-        # Login and navigate to the orange item
-        orange_page = login_and_navigate_to_item(driver, "oranges")
+        orange_page = _login_and_navigate_to_item(driver, "oranges")
 
-        # Click the five-star button
-        orange_page.click_five_star_button()
-
+        # Dynamically call the correct star-rating method
+        getattr(orange_page, f"click_{stars}_star_button")()
         # Click the send button
         orange_page.click_send_button()
 
-        # Get the review rating
+        # Get the user rating
         user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
-
-        # Assert that the user rating is 5 and the user feedback is correct
-        assert user_rating == '(5)'
+        # Assert the user rating is the expected
+        assert user_rating == f'({expected_rating})'
 
     finally:
         # Delete the review
-        orange_page = OrangePage(driver)
-        orange_page.delete_review()
+        if orange_page:
+            OrangePage(driver).delete_review()
+
+
+def test_five_star(driver):
+    _test_star_rating(driver, "five", 5)
 
 
 def test_three_star(driver):
-    try:
-        # Login and navigate to the orange item
-        orange_page = login_and_navigate_to_item(driver, "oranges")
-
-        # Click the three-star button
-        orange_page.click_three_star_button()
-        orange_page.click_send_button()
-
-        # Get the review rating
-        user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
-
-        # Assert that the user rating is 3 and the user feedback is correct
-        assert user_rating == '(3)'
-
-    finally:
-        # Delete the review
-        orange_page = OrangePage(driver)
-        orange_page.delete_review()
+    _test_star_rating(driver, "three", 3)
