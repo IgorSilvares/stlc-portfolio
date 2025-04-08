@@ -30,3 +30,7 @@ def test_valid_age(driver):
 
 def test_invalid_age(driver):
     _age_test_helper(driver, "01-01-2020", valid_age=False)
+
+
+def test_empty_age(driver):
+    _age_test_helper(driver, birth_date="", valid_age=False)
