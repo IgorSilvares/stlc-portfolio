@@ -2,9 +2,7 @@ from pages.login_page import LoginPage
 from utils.constants import user, password
 
 
-def _age_test_helper(driver, birth_date, valid_age):
-    """Helper function for age verification tests"""
-
+def _age_test(driver, birth_date, valid_age):
     # Login with user and password
     homepage = LoginPage(driver).open_page_and_login(user, password)
 
@@ -25,12 +23,12 @@ def _age_test_helper(driver, birth_date, valid_age):
 
 
 def test_valid_age(driver):
-    _age_test_helper(driver, "01-01-2000", valid_age=True)
+    _age_test(driver, "01-01-2000", valid_age=True)
 
 
 def test_invalid_age(driver):
-    _age_test_helper(driver, "01-01-2020", valid_age=False)
+    _age_test(driver, "01-01-2020", valid_age=False)
 
 
 def test_empty_age(driver):
-    _age_test_helper(driver, birth_date="", valid_age=False)
+    _age_test(driver, birth_date="", valid_age=False)
