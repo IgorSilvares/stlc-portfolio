@@ -3,7 +3,6 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 from pages.shop_page import ShopPage
-from . import shop_page
 from .checkout_page import CheckoutPage
 
 
