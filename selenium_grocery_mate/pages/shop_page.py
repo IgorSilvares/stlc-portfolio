@@ -29,15 +29,26 @@ class ShopPage:
         self.celery_quantity_locator = (By.XPATH, "//div[@class='card' and .//*[contains(text(),'Celery')]]//input")
         self.celery_add_to_cart_button = (By.XPATH, "//div[@class='card' and .//*[contains(text(),'Celery')]]//button[@class='btn btn-primary btn-cart']")
         self.checkout_button = (By.XPATH, "//div[@class='headerIcon'][3]")
+        self.next_button = (By.XPATH, "//button[@class='pagination-link' and .//text()='Next']")
+
+        self.first_product_quantity = (By.XPATH, "(//input[@class='quantity'])[1]")
+        self.first_product_add_button = (By.XPATH, "(//button[@class='btn btn-primary btn-cart'])[1]")
 
     # Actions
-
     def enter_celery_quantity(self, quantity):
         self.driver.find_element(*self.celery_quantity_locator).clear()
         self.driver.find_element(*self.celery_quantity_locator).send_keys(quantity)
 
     def enter_age(self, age):
         self.driver.find_element(*self.age_input_locator).send_keys(age)
+
+        # Wait for value to be populated
+        WebDriverWait(self.driver, 3).until(
+            EC.text_to_be_present_in_element_value(
+                self.age_input_locator,
+                age
+            )
+        )
 
     def enter_search(self, search):
         self.driver.find_element(*self.search_input_locator).send_keys(search)
@@ -58,7 +69,7 @@ class ShopPage:
     
     def click_age_confirm_button(self):
         self.driver.find_element(*self.age_confirm_button).click()
-    
+
     def click_celery_add_to_cart_button(self):
         self.driver.find_element(*self.celery_add_to_cart_button).click()
 
@@ -67,9 +78,31 @@ class ShopPage:
         return OrangePage(self.driver)
 
     def click_alcohol(self):
-        self.driver.find_element(*self.alcohol_locator).click()
+        # Wait for the alcohol link to be present
+        WebDriverWait(self.driver, 5).until(
+            EC.element_to_be_clickable(self.alcohol_locator)
+        ).click()
         return AlcoholPage(self.driver)
 
     def click_checkout(self):
         self.driver.find_element(*self.checkout_button).click()
-        return CheckoutPage(self.driver)
+
+        checkout_page = CheckoutPage(self.driver)
+
+        return checkout_page
+
+    def click_next_button(self):
+        self.driver.find_element(*self.next_button).click()
+
+    def click_first_product_add_to_cart(self):
+        # Scroll the actual element into view
+        #self.execute_script("arguments[0].scrollIntoView({block: 'center'});", self.first_product_add_button)
+
+        self.driver.find_element(*self.first_product_add_button).click()
+
+    def enter_first_product_quantity(self, quantity):
+        WebDriverWait(self.driver, 10).until(
+            EC.element_to_be_clickable(self.first_product_quantity)
+        )
+        self.driver.find_element(*self.first_product_quantity).clear()
+        self.driver.find_element(*self.first_product_quantity).send_keys(quantity)
