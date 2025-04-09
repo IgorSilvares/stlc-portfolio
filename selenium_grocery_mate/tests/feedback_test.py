@@ -32,9 +32,9 @@ def _test_feedback(driver, feedback_text, stars=None, expected_rating=None, expe
 
             # Get the user rating
             user_rating = orange_page.driver.find_element(*orange_page.review_user_rate).text
+
             # Assert the user rating is the expected
             user_feedback = orange_page.driver.find_element(*orange_page.review_user_feedback).text
-
             assert user_rating == f'({expected_rating})'
             assert user_feedback == feedback_text
         else:
