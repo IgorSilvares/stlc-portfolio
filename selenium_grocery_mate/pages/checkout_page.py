@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 
 class CheckoutPage:
@@ -13,3 +15,8 @@ class CheckoutPage:
     # Actions
     def click_remove_product(self):
         self.driver.find_element(*self.remove_product_locator).click()
+
+    def get_shipment_price(self):
+        return WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(self.shipment_price_locator)
+        )
