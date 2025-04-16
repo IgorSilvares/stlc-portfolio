@@ -12,11 +12,6 @@
 - **Input**: 5 stars.
 - **Expected Outcome**: Rating is saved and displayed correctly.
 
-**Test Case**: Verify submitting a 6-star rating.
-- **Input**: 6 stars.
-- **Expected Outcome**: It's not possible to select 6 stars on rating.
-
-
 **Test Case**: Verify submitting a -1-star rating.
 - **Input**: -1 stars.
 - **Expected Outcome**: It's not possible to select negative stars on rating.

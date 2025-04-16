@@ -19,25 +19,8 @@
 
 ---
 
-### Scenario 2: Verify submitting a 6-star rating
 
-**Input:** 6 stars.
-
-**Expected Outcome:** It's not possible to select 6 stars on rating.
-
-| Action                                                      | Expected outcome                            | OK/NOK | URL                                                                                | Link to issue |
-|-------------------------------------------------------------|---------------------------------------------|--------|------------------------------------------------------------------------------------|---------------|
-| Go to login page Grocery Mate                               | Login page appears                          | OK     | [https://grocerymate.masterschool.com/auth](https://grocerymate.masterschool.com/auth) |               |
-| Log in with email: user@user.com and password: user123      | You are logged and redirected to home page  | OK     |                                                                                    |               |
-| Go to shop page                                             | Shop page appears                           | OK     | [https://grocerymate.masterschool.com/store](https://grocerymate.masterschool.com/store) |               |
-| Click on Oranges                                            | Oranges page appears                        | OK     | [https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f](https://grocerymate.masterschool.com/product/66b3a57b3fd5048eacb4798f) |               |
-|Check that 6 stars cannot be selected                                            | 6 stars cannot be selected                  | OK     |                                                                                    |               |
-
-![image](https://github.com/user-attachments/assets/e531b3fd-b835-400d-8f13-5ccde4982cdc)
-
----
-
-### Scenario 3: Verify submitting written feedback with 100 characters
+### Scenario 2: Verify submitting written feedback with 100 characters
 
 **Input:** Feedback text with 100 characters, 3-star rating.
 
@@ -59,7 +42,7 @@
 
 ---
 
-### Scenario 4: Verify submitting written feedback with 501 characters
+### Scenario 3: Verify submitting written feedback with 501 characters
 
 **Input:** Feedback text with 501 characters.
 
@@ -77,7 +60,7 @@
 
 ---
 
-### Scenario 5: Verify submitting a 3-star rating
+### Scenario 4: Verify submitting a 3-star rating
 
 **Input:** 3-star rating.
 
@@ -97,7 +80,7 @@
 
 ---
 
-### Scenario 6: Verify Updating Rating and Feedback
+### Scenario 5: Verify Updating Rating and Feedback
 
 **Input:** Update the star rating and feedback text.
 
@@ -118,7 +101,7 @@
 
 ---
 
-### Scenario 7: Verify age validation modal
+### Scenario 6: Verify age validation modal
 
 **Input:** Navigate to the shop page
 
@@ -134,7 +117,7 @@
 ---
 
 
-### Scenario 8: Verify access with valid age
+### Scenario 7: Verify access with valid age
 
 **Input:** enter date 20-12-1999 (25 years)
 
@@ -155,7 +138,7 @@
 ---
 
 
-### Scenario 9: Verify Access with Invalid Age
+### Scenario 8: Verify Access with Invalid Age
 
 **Input:** Enter date 20-12-2008 (16 years)
 
@@ -173,7 +156,7 @@
 
 ---
 
-### Scenario 10: Verify System Behavior When No Age Is Entered
+### Scenario 9: Verify System Behavior When No Age Is Entered
 
 **Input:** Leave age input field empty.
 
@@ -192,7 +175,7 @@
 
 ---
 
-### Scenario 11: Verify free shipping for high-value orders
+### Scenario 10: Verify free shipping for high-value orders
 
 **Input:** Add products to exceed the free shipping threshold.
 
@@ -214,7 +197,7 @@
 
 ---
 
-### Scenario 12: Verify shipping fee for low-value orders
+### Scenario 11: Verify shipping fee for low-value orders
 
 **Input:** Add products below the free shipping threshold.
 
@@ -236,7 +219,7 @@
 
 ---
 
-### Scenario 13: Verify system behavior when removing items to drop below the free shipping threshold
+### Scenario 12: Verify system behavior when removing items to drop below the free shipping threshold
 
 **Input:** Add products above the free shipping threshold, then remove items to drop below the threshold.
 
