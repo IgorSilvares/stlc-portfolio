@@ -3,7 +3,7 @@ from pages.login_page import LoginPage
 from utils.constants import user, password
 
 
-def _login_and_navigate_to_item(driver):
+def _login_and_navigate_to_shop(driver):
     # Login with user and password
     homepage = LoginPage(driver).open_page_and_login(user, password)
 
@@ -14,7 +14,7 @@ def _login_and_navigate_to_item(driver):
 def _add_to_cart(driver, quantity, free_shipment):
     try:
         # Login and go to Shop Page
-        shop_page = _login_and_navigate_to_item(driver)
+        shop_page = _login_and_navigate_to_shop(driver)
         shop_page.enter_age('01-01-2000')
         shop_page.click_age_confirm_button()
 
