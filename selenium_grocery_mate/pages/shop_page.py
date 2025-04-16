@@ -1,5 +1,4 @@
 from selenium.webdriver.support import expected_conditions as EC
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 
@@ -22,12 +21,15 @@ class ShopPage:
         self.age_confirm_button = (By.XPATH, "//div[@class='modal-content']/button")
         self.orange_locator = (By.XPATH, "//img[@alt='Oranges']")
         self.orange_quantity_locator = (By.XPATH, "//div[@class='card' and .//*[contains(text(),'Oranges')]]//input")
-        self.orange_add_to_cart_button = (By.XPATH, "//div[@class='card' and .//*[contains(text(),'Oranges')]]//button[@class='btn btn-primary btn-cart']")
+        self.orange_add_to_cart_button = (By.XPATH,
+                                          "//div[@class='card' and .//*[contains(text(),'Oranges')]]//button["
+                                          "@class='btn btn-primary btn-cart']")
         self.search_input_locator = (By.XPATH, "//input[@type='text' and @placeholder='Search Products']")
         self.searched_item_locator = (By.XPATH, "//div[@class='suggestion-item']")
         self.alcohol_locator = (By.XPATH, "//a[text()='Alocohol']")
         self.celery_quantity_locator = (By.XPATH, "//div[@class='card' and .//*[contains(text(),'Celery')]]//input")
-        self.celery_add_to_cart_button = (By.XPATH, "//div[@class='card' and .//*[contains(text(),'Celery')]]//button[@class='btn btn-primary btn-cart']")
+        self.celery_add_to_cart_button = (By.XPATH, "//div[@class='card' and .//*[contains(text(),"
+                                                    "'Celery')]]//button[@class='btn btn-primary btn-cart']")
         self.checkout_button = (By.XPATH, "//div[@class='headerIcon'][3]")
         self.next_button = (By.XPATH, "//button[@class='pagination-link' and .//text()='Next']")
 
@@ -53,8 +55,7 @@ class ShopPage:
     def enter_search(self, search):
         self.driver.find_element(*self.search_input_locator).send_keys(search)
 
-        # Wait for the orange item to be present
-        orange_item = WebDriverWait(self.driver, timeout=3).until(
+        WebDriverWait(self.driver, timeout=3).until(
             EC.presence_of_element_located(self.searched_item_locator)
         )
 
@@ -66,7 +67,7 @@ class ShopPage:
 
         # Return the OrangePage
         return OrangePage(self.driver)
-    
+
     def click_age_confirm_button(self):
         self.driver.find_element(*self.age_confirm_button).click()
 
@@ -86,22 +87,16 @@ class ShopPage:
 
     def click_checkout(self):
         self.driver.find_element(*self.checkout_button).click()
-
-        checkout_page = CheckoutPage(self.driver)
-
-        return checkout_page
+        return CheckoutPage(self.driver)
 
     def click_next_button(self):
         self.driver.find_element(*self.next_button).click()
 
     def click_first_product_add_to_cart(self):
-        # Scroll the actual element into view
-        #self.execute_script("arguments[0].scrollIntoView({block: 'center'});", self.first_product_add_button)
-
         self.driver.find_element(*self.first_product_add_button).click()
 
     def enter_first_product_quantity(self, quantity):
-        WebDriverWait(self.driver, 10).until(
+        WebDriverWait(self.driver, 3).until(
             EC.element_to_be_clickable(self.first_product_quantity)
         )
         self.driver.find_element(*self.first_product_quantity).clear()
