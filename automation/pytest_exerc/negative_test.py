@@ -1,17 +1,3 @@
-# from count_vowel_consonant_pairs import count_vowel_consonant_pairs
-# import pytest
-#
-#
-# @pytest.mark.parametrize("invalid_input, expected_output", [
-#     (None,TypeError),
-#     (12345,  TypeError),
-#     (["hello"], TypeError),
-#     ({"text": "hi"}, TypeError),
-# ])
-# def test_count_vowel_consonant_pairs(invalid_input, expected_output):
-#     assert count_vowel_consonant_pairs(invalid_input) == expected_output
-
-
 from count_vowel_consonant_pairs import count_vowel_consonant_pairs
 import pytest
 
