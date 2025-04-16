@@ -5,7 +5,6 @@ from utils.constants import user, password
 
 
 def _login_and_navigate_to_item(driver, search_term):
-    """Login and navigate to specified product page"""
     homepage = LoginPage(driver).open_page_and_login(user, password)
     shop_page = homepage.click_shop()
     shop_page.click_age_confirm_button()
@@ -18,7 +17,6 @@ def _login_and_navigate_to_item(driver, search_term):
     3,
 ])
 def test_star_ratings(driver, stars):
-    """Test submitting reviews with different star ratings"""
     orange_page = None
     try:
         # Setup test
