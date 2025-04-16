@@ -15,8 +15,6 @@ def _login_and_navigate_to_item(driver, search_term):
     shop_page.enter_search(search_term)
 
     # Enter the product page
-    shop_page.click_searched_item()
-
     return shop_page.click_searched_item()
 
 
