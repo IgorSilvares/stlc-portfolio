@@ -28,7 +28,6 @@ def _login_and_navigate_to_item(driver, search_term):
     )
 ])
 def test_feedback_submission(driver, feedback_text, stars, expect_error):
-    """Test feedback submission with various parameters"""
     orange_page = None
     try:
         # Setup test
