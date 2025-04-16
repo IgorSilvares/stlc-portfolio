@@ -15,7 +15,6 @@ def _login_and_navigate_to_shop(driver):
     pytest.param(1, False),
 ])
 def test_shipment_pricing(driver, quantity, expected_free_shipment):
-    """Test shipment pricing based on product quantity"""
     try:
         # Setup test
         shop_page = _login_and_navigate_to_shop(driver)
