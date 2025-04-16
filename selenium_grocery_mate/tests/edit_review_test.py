@@ -17,7 +17,6 @@ REVIEW_TEST_CASES = [
 
 
 def _login_and_navigate_to_item(driver, search_term):
-    """Login and navigate to specified product page"""
     homepage = LoginPage(driver).open_page_and_login(user, password)
     shop_page = homepage.click_shop()
     shop_page.click_age_confirm_button()
@@ -26,13 +25,11 @@ def _login_and_navigate_to_item(driver, search_term):
 
 
 def _delete_review(driver):
-    """Clean up by deleting the review"""
     OrangePage(driver).delete_review()
 
 
 @pytest.mark.parametrize("test_data", REVIEW_TEST_CASES)
 def test_edit_review(driver, test_data):
-    """Test editing product reviews with various parameters"""
     try:
         # Setup: Navigate to product and create initial review
         orange_page = _login_and_navigate_to_item(driver, test_data["search_term"])
