@@ -53,12 +53,6 @@ class OrangePage:
         ).click()
 
     def click_star_rating(self, stars):
-        """
-        Clicks the star rating button based on the number of stars requested
-
-        Args:
-            stars (int): Number of stars to select (1-5)
-        """
         if not 1 <= stars <= 5:
             raise ValueError("Star rating must be between 1 and 5")
 
