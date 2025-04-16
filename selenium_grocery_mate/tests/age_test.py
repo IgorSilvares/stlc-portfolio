@@ -13,7 +13,7 @@ AGE_TEST_CASES = [
 
 @pytest.mark.parametrize("birthdate,is_valid_age,test_description", AGE_TEST_CASES)
 def test_age_validation(driver, birthdate, is_valid_age, test_description):
-    
+
     # Login with user credentials
     homepage = LoginPage(driver).open_page_and_login(user, password)
 
