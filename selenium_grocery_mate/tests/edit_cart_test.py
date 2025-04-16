@@ -4,7 +4,7 @@ from utils.constants import user, password
 
 
 def _login_and_navigate_to_shop(driver):
-    """Login and navigate to shop page"""
+    # Login and navigate to shop page
     homepage = LoginPage(driver).open_page_and_login(user, password)
     return homepage.click_shop()
 
@@ -18,11 +18,6 @@ def _login_and_navigate_to_shop(driver):
 def test_shipping_threshold_with_quantity_changes(
         driver, initial_qty, add_clicks, remove_clicks, expected_shipment
 ):
-    """
-    Test shipping price changes when:
-    - Adding multiple items to reach free shipping threshold
-    - Removing items to fall below threshold
-    """
     checkout_page = None
     try:
         # Setup test
