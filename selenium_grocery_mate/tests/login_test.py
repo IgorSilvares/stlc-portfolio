@@ -1,6 +1,3 @@
-from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-
 from pages.login_page import LoginPage
 from utils.constants import user, password
 
