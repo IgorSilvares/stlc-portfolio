@@ -45,7 +45,7 @@ def test_shipping_threshold_with_quantity_changes(
         for _ in range(remove_clicks):
             checkout_page.click_minus_product_button()
 
-        # 3. Verify expected shipping price
+        # Verify expected shipping price
         assert checkout_page.get_shipment_price().text == expected_shipment
 
     finally:
