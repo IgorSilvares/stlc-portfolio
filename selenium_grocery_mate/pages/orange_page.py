@@ -52,6 +52,29 @@ class OrangePage:
             EC.presence_of_element_located(self.five_star_locator)
         ).click()
 
+    def click_star_rating(self, stars):
+        """
+        Clicks the star rating button based on the number of stars requested
+
+        Args:
+            stars (int): Number of stars to select (1-5)
+        """
+        if not 1 <= stars <= 5:
+            raise ValueError("Star rating must be between 1 and 5")
+
+        star_locators = {
+            1: self.one_star_locator,
+            2: self.two_star_locator,
+            3: self.three_star_locator,
+            4: self.four_star_locator,
+            5: self.five_star_locator
+        }
+
+        # Wait for the star rating element to be present and click it
+        WebDriverWait(self.driver, 3).until(
+            EC.presence_of_element_located(star_locators[stars])
+        ).click()
+
     def enter_review_text(self, text):
         WebDriverWait(self.driver, 3).until(
             EC.presence_of_element_located(self.review_text_locator)
@@ -90,7 +113,7 @@ class OrangePage:
 
         # Wait for the new feedback to be present
         WebDriverWait(self.driver, 3).until(
-            EC.presence_of_element_located(self.updated_text_locator)
+            EC.presence_of_element_located(self.review_user_feedback)
         )
 
     def check_feedback_error(self):
