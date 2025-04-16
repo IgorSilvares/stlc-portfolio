@@ -1,6 +1,6 @@
 from pages.login_page import LoginPage
 from pages.orange_page import OrangePage
-from utils.constants import user, password, feedback_100char, feedback_500char, updated_text
+from utils.constants import user, password, feedback_100char, updated_text
 
 
 def _login_and_navigate_to_item(driver, search_term):
@@ -20,7 +20,7 @@ def _login_and_navigate_to_item(driver, search_term):
     return orange_page
 
 
-def _delete_review_helper(driver):
+def _delete_review(driver):
     # Delete the review
     orange_page = OrangePage(driver)
     orange_page.delete_review()
@@ -61,4 +61,4 @@ def test_edit(driver):
 
     finally:
         # Delete the review
-        _delete_review_helper(driver)
+        _delete_review(driver)
