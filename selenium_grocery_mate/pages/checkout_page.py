@@ -11,6 +11,9 @@ class CheckoutPage:
         # Locators
         self.remove_product_locator = (By.XPATH, "//a[@class='remove-icon']")
         self.shipment_price_locator = (By.XPATH, "//div[@class='shipment-container']//h5[2]")
+        self.plus_product_button = (By.XPATH, "//button[@class='plus']")
+        self.minus_product_button = (By.XPATH, "//button[@class='minus']")
+        self.remove_all_button = (By.XPATH, "//a[@class='remove-icon']")
 
     # Actions
     def click_remove_product(self):
@@ -20,3 +23,12 @@ class CheckoutPage:
         return WebDriverWait(self.driver, 3).until(
             EC.presence_of_element_located(self.shipment_price_locator)
         )
+
+    def click_remove_all_button(self):
+        self.driver.find_element(*self.remove_all_button).click()
+
+    def click_plus_product_button(self):
+        self.driver.find_element(*self.plus_product_button).click()
+
+    def click_minus_product_button(self):
+        self.driver.find_element(*self.minus_product_button).click()
