@@ -4,6 +4,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 
 from pages.home_page import HomePage
+from pages.new_account_page import NewAccountPage
 from utils.constants import log_in_url
 
 
@@ -15,7 +16,8 @@ class LoginPage:
         # Locators
         self.email_locator = (By.XPATH, "//input[@type='email']")
         self.password_locator = (By.XPATH, "//input[@type='password']")
-        self.sign_in__button_locator = (By.XPATH, "//button[@type='submit']")	
+        self.sign_in__button_locator = (By.XPATH, "//button[@type='submit']")
+        self.create_new_account_button = (By.XPATH, "//a[@class='switch-link']")
 
     # Actions
     def open_page(self):
@@ -43,3 +45,8 @@ class LoginPage:
         )
 
         return HomePage(self.driver)
+
+    def click_create_new_account_button(self):
+        self.driver.find_element(*self.create_new_account_button).click()
+
+        return NewAccountPage(self.driver)
